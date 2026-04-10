@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Vivado
+*.jou
+*.log
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.xpr
+*.str
+.Xil/
+
+# Simulation
+*.vcd
+*.wlf
+*.fst
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
