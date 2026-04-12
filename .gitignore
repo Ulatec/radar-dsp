@@ -6,6 +6,15 @@ __pycache__/
 venv/
 *.egg-info/
 
+# Java
+*.class
+
+# GHDL build artifacts
+*.o
+*.exe
+*.cf
+*.ghw
+
 # Vivado
 *.jou
 *.log
