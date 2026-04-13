@@ -21,7 +21,7 @@ Three streaming blocks connected via AXI-Stream, all operating on 16-bit signed 
 | 0 | Repo setup | Done |
 | 1 | Python golden reference (float + Q1.15 fixed-point) | Done |
 | 2 | DDS chirp generator in VHDL | Done |
-| 3 | Matched filter in VHDL | Planned |
+| 3 | Matched filter in VHDL | Done |
 | 4 | CFAR detector in VHDL | Planned |
 | 5 | Top-level integration | Planned |
 | 6 | FPGA bring-up on ZU3 | Planned |
@@ -55,6 +55,33 @@ First 8 samples:
     5     32413     32413     -4808     -4808
     6     15447     15447     28899     28899
     7    -22154    -22154     24144     24144
+```
+
+### Matched Filter — Verified
+
+![Matched filter architecture](docs/architecture/matched_filter_internal.png)
+
+Time-multiplexed complex FIR with 64 taps, 4 DSP48E2 slices reused across all taps. 300-sample test with two chirp echoes embedded in noise:
+
+```
+VHDL samples:     300
+Expected samples: 300
+
+PASS: All samples match bit-exact.
+
+First 8 samples:
+    n        VHDL_I         Ref_I        VHDL_Q         Ref_Q
+    0            61            61          1117          1117
+    1          -561          -561           818           818
+    2         -2050         -2050          -607          -607
+    3         -1852         -1852         -1738         -1738
+    4          1389          1389         -2401         -2401
+    5          2851          2851           394           394
+    6         -1914         -1914          2647          2647
+    7         -3422         -3422           -19           -19
+
+VHDL peak at index:     143
+Expected peak at index: 143
 ```
 
 ### Float vs Fixed-Point Comparison
