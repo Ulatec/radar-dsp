@@ -23,7 +23,7 @@ Three streaming blocks connected via AXI-Stream, all operating on 16-bit signed 
 | 2 | DDS chirp generator in VHDL | Done |
 | 3 | Matched filter in VHDL | Done |
 | 4 | CFAR detector in VHDL | Done |
-| 5 | Top-level integration | Planned |
+| 5 | Top-level integration (loopback) | Done |
 | 6 | FPGA bring-up on ZU3 | Planned |
 | 7 | Hardware demo with ultrasonic transducers | Planned |
 
