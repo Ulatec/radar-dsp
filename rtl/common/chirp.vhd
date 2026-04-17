@@ -3,6 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use work.sin_lut_pkg.all;
 
+
 entity chirp is
   generic (
     SAMPLE_RATE : integer := 200_000; -- Sample rate in Hz
