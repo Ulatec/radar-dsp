@@ -22,7 +22,7 @@ Three streaming blocks connected via AXI-Stream, all operating on 16-bit signed 
 | 1 | Python golden reference (float + Q1.15 fixed-point) | Done |
 | 2 | DDS chirp generator in VHDL | Done |
 | 3 | Matched filter in VHDL | Done |
-| 4 | CFAR detector in VHDL | Planned |
+| 4 | CFAR detector in VHDL | Done |
 | 5 | Top-level integration | Planned |
 | 6 | FPGA bring-up on ZU3 | Planned |
 | 7 | Hardware demo with ultrasonic transducers | Planned |
@@ -82,6 +82,20 @@ First 8 samples:
 
 VHDL peak at index:     143
 Expected peak at index: 143
+```
+
+### CFAR Detector — Verified
+
+CA-CFAR with a 193-sample sliding window (64 training + 32 guard per side + CUT) using O(1) running sum updates. Q16.16 alpha threshold with the training-cell divide pre-baked into the constant. 1000-sample test with three chirp echoes:
+
+```
+VHDL samples:     1004
+Expected samples: 1000
+
+VHDL detections:     99
+Expected detections: 99
+
+PASS: All flags match bit-exact.
 ```
 
 ### Float vs Fixed-Point Comparison
